@@ -12,7 +12,10 @@ void exec_opcode(stack_t **stack)
 		{"push", _push_}, {"pall", _pall_},
 		{"pint", _pint_}, {"pop", _pop_},
 		{"swap", _swap_}, {"add", _add_},
-		{"nop", _nop_}, {NULL, NULL}
+		{"nop", _nop_}, {"sub", _sub_},
+		{"div", _div_}, {"mul", _mul_},
+		{"mod", _mod_}, {"pchar", _pchar_},
+		{"pstr", _pstr_}, {NULL, NULL}
 	};
 
 	for (; opcode_funcs[i].opcode; i++)

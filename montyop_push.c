@@ -12,7 +12,7 @@ void _push_(stack_t **stack, unsigned int line_number)
 
 	if (!fstat.op_code_arg || !is_digs(fstat.op_code_arg))
 	{
-		fprintf(stderr, "L%u: usage: push integer", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free(fstat.line);
 		free_stack_t(*stack);
 
@@ -23,7 +23,7 @@ void _push_(stack_t **stack, unsigned int line_number)
 	new_stack = malloc(sizeof(stack_t));
 	if (!new_stack)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		free(fstat.line);
 		free_stack_t(*stack);
 

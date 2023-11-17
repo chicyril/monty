@@ -72,5 +72,11 @@ void _pop_(stack_t **stack, unsigned int line_number);
 void _swap_(stack_t **stack, unsigned int line_number);
 void _add_(stack_t **stack, unsigned int line_number);
 void _nop_(stack_t **stack, unsigned int line_number);
+void _sub_(stack_t **stack, unsigned int line_number);
+void _div_(stack_t **stack, unsigned int line_number);
+void _mul_(stack_t **stack, unsigned int line_number);
+void _mod_(stack_t **stack, unsigned int line_number);
+void _pchar_(stack_t **stack, unsigned int line_number);
+void _pstr_(stack_t **stack, unsigned int line_number);
 
 #endif
