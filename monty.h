@@ -42,6 +42,8 @@ typedef struct instruction_s
 
 /**
  * struct bytecode_file_stat - info stat for bytecode file
+ * @stack: opcode processed in stack mode - default
+ * @queue: opcode processed in queue mode
  * @line_num: line number currently being processed
  * @line: string content of the current line
  * @op_code: the opcode in the current line
@@ -50,6 +52,8 @@ typedef struct instruction_s
  */
 typedef struct bytecode_file_stat
 {
+	bool stack;
+	bool queue;
 	unsigned int line_num;
 	char *line;
 	char *op_code;
@@ -78,5 +82,7 @@ void _mul_(stack_t **stack, unsigned int line_number);
 void _mod_(stack_t **stack, unsigned int line_number);
 void _pchar_(stack_t **stack, unsigned int line_number);
 void _pstr_(stack_t **stack, unsigned int line_number);
+void _rotl_(stack_t **stack, unsigned int line_number);
+void _rotr_(stack_t **stack, unsigned int line_number);
 
 #endif

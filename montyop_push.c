@@ -7,8 +7,7 @@
  */
 void _push_(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_stack = NULL;
-
+	stack_t *top = NULL;
 
 	if (!fstat.op_code_arg || !is_digs(fstat.op_code_arg))
 	{
@@ -16,25 +15,25 @@ void _push_(stack_t **stack, unsigned int line_number)
 		free(fstat.line);
 		free_stack_t(*stack);
 
-
 		fclose(fstat.bytecodes);
 		exit(EXIT_FAILURE);
 	}
-	new_stack = malloc(sizeof(stack_t));
-	if (!new_stack)
+	top = malloc(sizeof(stack_t));
+	if (!top)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free(fstat.line);
 		free_stack_t(*stack);
 
-
 		fclose(fstat.bytecodes);
 		exit(EXIT_FAILURE);
 	}
-	new_stack->n = atoi(fstat.op_code_arg);
-	new_stack->prev = NULL;
-	new_stack->next = *stack;
+	top->n = atoi(fstat.op_code_arg);
+	top->prev = NULL;
+	top->next = *stack;
 	if (*stack)
-		(*stack)->prev = new_stack;
-	*stack = new_stack;
+		(*stack)->prev = top;
+	*stack = top;
+	if (fstat.queue)
+		_rotl_(stack, line_number);
 }

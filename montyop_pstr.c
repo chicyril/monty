@@ -15,9 +15,10 @@ void _pstr_(stack_t **stack, unsigned int line_number)
 		printer = *stack;
 		while (printer)
 		{
-			if (printer->n == 0 || !(printer->n >= 32 && printer->n <= 126))
+			if (!(printer->n >= 32 && printer->n <= 126))
 				break;
 			putchar(printer->n);
+			printer = printer->next;
 		}
 	}
 	putchar('\n');

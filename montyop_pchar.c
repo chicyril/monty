@@ -11,8 +11,6 @@ void _pchar_(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		free(fstat.line);
-		free_stack_t(*stack);
-
 
 		fclose(fstat.bytecodes);
 		exit(EXIT_FAILURE);
@@ -22,7 +20,6 @@ void _pchar_(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		free(fstat.line);
 		free_stack_t(*stack);
-
 
 		fclose(fstat.bytecodes);
 		exit(EXIT_FAILURE);

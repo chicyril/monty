@@ -1,6 +1,6 @@
 #include "monty.h"
 
-bytecode_file_stat_t fstat = {0, 0, 0, 0, 0};
+bytecode_file_stat_t fstat = {true, false, 0, 0, 0, 0, 0};
 /**
  * main - entry point of a monty bytecode interpreter
  * @ac: argument count

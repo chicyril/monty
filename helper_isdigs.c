@@ -10,9 +10,8 @@ bool is_digs(char *str)
 {
 	int i = 0;
 
-
-	while (str[i])
-		if (!isdigit(str[i++]))
+	for (; str[i]; i++)
+		if (!isdigit(str[i]) && str[i] != '-' && str[i] != '+')
 			return (false);
 	return (true);
 }
